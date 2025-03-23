@@ -3,18 +3,68 @@ import java.util.Random;
 
 public class LabProgram {
    public static void main(String[] args) {
+
+      // Taking a new input for the number that we need to print
       Scanner scnr = new Scanner(System.in);
-      
-      
       int numberOfPairs;
-      int i;
-      int x;
-      int j;
-      
       numberOfPairs = scnr.nextInt();
-      
-      int [] range = new int[numberOfPairs * 2];
-      int [][] outputTable1 = new int [(numberOfPairs * 2) / 5][5];
+
+      //We are assigning the new array here with values ranging from 1 till the provided input
+      int [] range = new int[numberOfPairs*2];
+      int counter = 1;
+      for(int arr = 0; arr < (numberOfPairs * 2)-1; arr+=2){
+        range[arr] = counter;
+        range[arr+1] = counter;
+        counter ++;
+      }
+
+      //Here we start printing the array in the table format
+      int temp2 = 0;
+      for(int temp = 0; temp < range.length ; temp++){
+        if(temp2 < 5){
+            //System.out.print(" counter = " +temp2);
+            System.out.print(" " + range[temp]);
+            temp2++;   
+        }
+        else {
+            System.out.println();
+            temp = temp-1;
+            temp2 = 0;
+        }
+      }
+
+
+    System.out.println();
+    System.out.println("---------------------------------------------------------------------");
+    
+    //Here we start randomizing the array and printing it
+    int index;
+    Random random = new Random();
+
+    for (int i = range.length - 1; i > 0; i--)
+    {
+        index = random.nextInt(i + 1);
+        if (index != i)
+        {
+            range[index] ^= range[i];
+            range[i] ^= range[index];
+            range[index] ^= range[i];
+        }
+    }
+    int temp3 = 0;
+      for(int temp = 0; temp < range.length ; temp++){
+        if(temp3 < 5){
+            //System.out.print(" counter = " +temp2);
+            System.out.print(" " + range[temp]);
+            temp3++;   
+        }
+        else {
+            System.out.println();
+            temp = temp-1;
+            temp3 = 0;
+        }
+      }
+      /*int [][] outputTable1 = new int [(numberOfPairs * 2) / 5][5];
       x = 1;
       for (i = 0; i < range.length; i = i + 2) {
          range[i + 1] = x;
@@ -24,7 +74,6 @@ public class LabProgram {
             System.out.printf("j = ", j);
             System.out.printf("%4d", outputTable1[i][j]);
          }
-      }
-         
+      }*/
    }
 }
