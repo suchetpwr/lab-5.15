@@ -7,7 +7,11 @@ public class LabProgram {
       // Taking a new input for the number that we need to print
       Scanner scnr = new Scanner(System.in);
       int numberOfPairs;
+      System.out.println("Enter the value for number of Pairs - ");
       numberOfPairs = scnr.nextInt();
+      int seed;
+      System.out.println("Enter the value for number of Pairs - ");
+      seed = scnr.nextInt();
 
       //We are assigning the new array here with values ranging from 1 till the provided input
       int [] range = new int[numberOfPairs*2];
@@ -22,9 +26,8 @@ public class LabProgram {
       int temp2 = 0;
       for(int temp = 0; temp < range.length ; temp++){
         if(temp2 < 5){
-            //System.out.print(" counter = " +temp2);
             System.out.print(" " + range[temp]);
-            temp2++;   
+            temp2++;
         }
         else {
             System.out.println();
@@ -36,10 +39,10 @@ public class LabProgram {
 
     System.out.println();
     System.out.println("---------------------------------------------------------------------");
-    
+
     //Here we start randomizing the array and printing it
     int index;
-    Random random = new Random();
+    Random random = new Random(seed);
 
     for (int i = range.length - 1; i > 0; i--)
     {
