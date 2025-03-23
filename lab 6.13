@@ -1,0 +1,30 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class LabProgram {
+   public static void main(String[] args) {
+      Scanner scnr = new Scanner(System.in);
+      
+      
+      int numberOfPairs;
+      int i;
+      int x;
+      int j;
+      
+      numberOfPairs = scnr.nextInt();
+      
+      int [] range = new int[numberOfPairs * 2];
+      int [][] outputTable1 = new int [(numberOfPairs * 2) / 5][5];
+      x = 1;
+      for (i = 0; i < range.length; i = i + 2) {
+         range[i + 1] = x;
+         x = x + 1; 
+         for (j = 0; j <= 5; ++j) {
+            System.out.printf("i = ", i);
+            System.out.printf("j = ", j);
+            System.out.printf("%4d", outputTable1[i][j]);
+         }
+      }
+         
+   }
+}
