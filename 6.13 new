@@ -1,0 +1,64 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class LabProgram {
+   public static void main(String[] args) {
+      Scanner scnr = new Scanner(System.in);
+      
+      
+      int numberOfPairs;
+      
+      System.out.println("Please enter the number of elements to be paired.");
+      System.out.println();
+      
+      numberOfPairs = scnr.nextInt();
+      
+      int [] range = new int[numberOfPairs * 2];
+      int counter = 1;
+      for (int arr = 0; arr < (numberOfPairs * 2) - 1; arr = arr + 2) {
+         range[arr] = counter;
+         range[arr + 1] = counter;
+         counter = counter + 1;
+      }
+      int [][] printPairs = new int[(numberOfPairs * 2) / 5][5];
+      int x = 0;
+      for (int i = 0; i < (numberOfPairs * 2)/5; ++i) {
+         for (int j = 0; j <= 4; ++j) {
+            printPairs [i][j] = range[x];
+            x = x + 1;
+            System.out.printf("%4d", printPairs[i][j]);
+         }
+         System.out.println();
+      }
+      System.out.println();
+      System.out.println("Please enter a seed number for testing purposes.");
+      System.out.println();
+      
+      int seedVal = scnr.nextInt();
+      Random randGen = new Random(seedVal);
+      int [] randomArr = new int[numberOfPairs * 2];
+      int counter2 = 1;
+      for (int arr = 0; arr < (numberOfPairs * 2) - 1; arr = arr + 2) {
+         randomArr[arr] = randGen.nextInt(numberOfPairs) + 1;
+         randomArr[arr + 1] = randomArr[arr];
+         System.out.println(randomArr[arr]);
+      }
+      
+      int [][] printPairs2 = new int[(numberOfPairs * 2) / 5][5];
+      int y = 0;
+      for (int i = 0; i < (numberOfPairs * 2)/5; ++i) {
+         for (int j = 0; j <= 4; ++j) {
+            printPairs2 [i][j] = randomArr[y];
+            y = y + 1;
+            //if (randomArr[arr] != 0) {
+               System.out.printf("%4d", printPairs2[i][j]);
+               //randomArr[arr] = 0;
+            //}
+         }
+         System.out.println();
+      }
+            
+            
+         
+   }
+}
