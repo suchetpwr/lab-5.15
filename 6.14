@@ -1,4 +1,3 @@
-
 public class ProgramSummary{
     public static void main(String[] args){
         final int[][] timesTable = new int[12][];
@@ -11,6 +10,7 @@ public class ProgramSummary{
             timesTable[i] = row;
         }
 
+       System.out.println("PRinting the first half of table");
         for (int i = 0; i < 12; i++) {
             for (int j = 0; j < 12; j++) {
                 System.out.printf("%4d", timesTable[i][j]);
@@ -20,6 +20,7 @@ public class ProgramSummary{
 
         System.out.println();
 
+        System.out.println("PRinting the second block");
         for (int i = 0; i < 12; i++) {
             for (int j = 0; j <= i; j++) {
                 System.out.printf("%4d", timesTable[i][j]);
@@ -29,6 +30,7 @@ public class ProgramSummary{
 
         System.out.println();
 
+        System.out.println("PRinting third block");
          int rowCounter = 11;
         for (int i = 0; i < 12; i++) {
             for (int j = 0; j <= rowCounter; j++) {
@@ -48,9 +50,18 @@ public class ProgramSummary{
 //            rowCounter = rowCounter + 1;
 //            System.out.println();
 //       }
+
+        System.out.println("PRinting fourth block");
          rowCounter = 11;
-         for (int i = 0; i <= 12; i++) {
+         for (int i = 0; i <= 11; i++) {
+            if(rowCounter < 0){
+                break;
+             }
             for (int j = rowCounter; j <= 11; j--) {
+                if(j == 0){
+                    System.out.printf("%4d", timesTable[i][j]);
+                    break;
+                }
                 System.out.printf("%4d", timesTable[i][j]);
             }
             rowCounter = rowCounter - 1;
@@ -58,10 +69,12 @@ public class ProgramSummary{
         }
         
         //System.out.println();
-
+        System.out.println("PRinting fifth block");
          rowCounter = 11;
          for (int i = 0; i < 12; i++) {
+            //System.out.print(" I = " + i);
             for (int j = 11; j >= rowCounter; j--) {
+                //System.out.print(" J = " + j);
                 System.out.printf("%4d", timesTable[i][j]);
             }
             rowCounter = rowCounter - 1;
